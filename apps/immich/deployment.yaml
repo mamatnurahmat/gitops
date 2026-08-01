@@ -28,8 +28,6 @@ spec:
                 secretKeyRef:
                   name: immich-db-credentials
                   key: DB_PASSWORD
-            - name: REDIS_HOSTNAME
-              value: ""
           volumeMounts:
             - name: upload
               mountPath: /usr/src/app/upload
