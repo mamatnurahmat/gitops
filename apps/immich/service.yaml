@@ -11,4 +11,4 @@ spec:
     - name: http
       port: 2283
       targetPort: 2283
-      nodePort: 32283
+      nodePort: 8283
