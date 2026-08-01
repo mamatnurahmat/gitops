@@ -17,3 +17,4 @@ spec:
         name: immich-cnpg-secret
       postInitApplicationSQL:
         - CREATE EXTENSION IF NOT EXISTS vector;
+        - ALTER ROLE "UserImmich" SUPERUSER;
