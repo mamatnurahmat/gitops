@@ -18,7 +18,7 @@ spec:
           image: ghcr.io/immich-app/immich-server:release
           imagePullPolicy: IfNotPresent
           ports:
-            - containerPort: 3001
+            - containerPort: 2283
           envFrom:
             - configMapRef:
                 name: immich-env

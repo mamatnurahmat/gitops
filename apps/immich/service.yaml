@@ -9,4 +9,4 @@ spec:
   ports:
     - name: http
       port: 2283
-      targetPort: 3001
+      targetPort: 2283
