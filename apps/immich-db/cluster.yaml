@@ -15,3 +15,5 @@ spec:
       owner: UserImmich
       secret:
         name: immich-cnpg-secret
+      postInitApplicationSQL:
+        - CREATE EXTENSION IF NOT EXISTS vector;
