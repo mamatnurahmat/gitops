@@ -1,0 +1,39 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: immich-server
+  namespace: immich
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: immich-server
+  template:
+    metadata:
+      labels:
+        app: immich-server
+    spec:
+      containers:
+        - name: immich-server
+          image: ghcr.io/immich-app/immich-server:release
+          imagePullPolicy: IfNotPresent
+          ports:
+            - containerPort: 3001
+          envFrom:
+            - configMapRef:
+                name: immich-env
+          env:
+            - name: DB_PASSWORD
+              valueFrom:
+                secretKeyRef:
+                  name: immich-db-credentials
+                  key: DB_PASSWORD
+            - name: REDIS_HOSTNAME
+              value: ""
+          volumeMounts:
+            - name: upload
+              mountPath: /usr/src/app/upload
+      volumes:
+        - name: upload
+          persistentVolumeClaim:
+            claimName: immich-upload

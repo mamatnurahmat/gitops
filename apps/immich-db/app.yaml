@@ -1,0 +1,20 @@
+apiVersion: argoproj.io/v1alpha1
+kind: Application
+metadata:
+  name: immich-db
+  namespace: argocd
+spec:
+  project: default
+  source:
+    repoURL: https://github.com/mamatnurahmat/gitops.git
+    targetRevision: main
+    path: apps/immich-db
+  destination:
+    server: https://kubernetes.default.svc
+    namespace: immich
+  syncPolicy:
+    automated:
+      prune: true
+      selfHeal: true
+    syncOptions:
+      - CreateNamespace=true
