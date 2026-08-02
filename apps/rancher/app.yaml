@@ -1,0 +1,35 @@
+apiVersion: argoproj.io/v1alpha1
+kind: Application
+metadata:
+  name: rancher
+  namespace: argocd
+spec:
+  project: default
+  source:
+    repoURL: https://releases.rancher.com/server-charts/stable
+    targetRevision: v2.11.2
+    chart: rancher
+    helm:
+      values: |
+        hostname: k8s.sawangan.web.id
+        ingress:
+          tls:
+            source: letsEncrypt
+        letsEncrypt:
+          email: admin@sawangan.web.id
+          environment: production
+        bootstrapPassword: admin
+        replicas: 1
+        global:
+          cattle:
+            psp:
+              enabled: false
+  destination:
+    server: https://kubernetes.default.svc
+    namespace: cattle-system
+  syncPolicy:
+    automated:
+      prune: true
+      selfHeal: true
+    syncOptions:
+      - CreateNamespace=true
