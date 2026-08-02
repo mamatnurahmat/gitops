@@ -11,6 +11,8 @@ spec:
     path: apps/keycloak/chart
     helm:
       values: |
+        postgresql:
+          enabled: false
         auth:
           adminUser: admin
           existingSecret: keycloak-auth-secret
