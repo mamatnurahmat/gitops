@@ -6,9 +6,9 @@ metadata:
 spec:
   project: default
   source:
-    repoURL: https://charts.bitnami.com/bitnami
-    chart: keycloak
-    targetRevision: "25.2.0"
+    repoURL: https://github.com/mamatnurahmat/gitops.git
+    targetRevision: main
+    path: apps/keycloak/chart
     helm:
       values: |
         auth:
