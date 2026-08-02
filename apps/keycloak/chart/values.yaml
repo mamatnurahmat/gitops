@@ -91,9 +91,9 @@ usePasswordFiles: true
 ## @param image.debug Enable Keycloak image debug mode
 ##
 image:
-  registry: docker.io
-  repository: bitnami/keycloak
-  tag: 26.3.2-debian-12-r0
+  registry: quay.io
+  repository: keycloak/keycloak
+  tag: 26.1.0
   digest: ""
   ## Specify a imagePullPolicy
   ## ref: https://kubernetes.io/docs/concepts/containers/images/#pre-pulled-images
@@ -1001,9 +1001,9 @@ keycloakConfigCli:
   ## @param keycloakConfigCli.image.pullSecrets keycloak-config-cli container image pull secrets
   ##
   image:
-    registry: docker.io
-    repository: bitnami/keycloak-config-cli
-    tag: 6.5.1-debian-12-r2
+    registry: quay.io
+    repository: keycloak/keycloak-config-cli
+    tag: 6.4.0-debian-12-r11
     digest: ""
     ## Specify a imagePullPolicy
     ## ref: https://kubernetes.io/docs/concepts/containers/images/#pre-pulled-images
@@ -1293,3 +1293,4 @@ externalDatabase:
   existingSecretPasswordKey: ""
   annotations: {}
   extraParams: ""
+
